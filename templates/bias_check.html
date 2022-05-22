@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>Loan Applicantion Form</title>
+     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
+	<link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/fontawesome-all.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/swiper.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/magnific-popup.css')}}" rel="stylesheet">
+	<link href="{{url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet">
+
+
+	<!-- Favicon  -->
+    <link rel="icon" href="{{url_for('static', filename='images/loan-application-approved.svg')}}">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    <!-- Preloader -->
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+        <a class="navbar-brand logo-image" href="/"><img src="{{url_for('static', filename='images/loan-application-approved.svg')}}" alt="alternative"></a>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#Predict">PREDICT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#Visualize">VISUALIZE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#Insights">INSIGHTS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="header" class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Predict Loan Application Approval</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcrumbs -->
+    <!-- <div class="ex-basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumbs">
+                        <a href="/">Home</a><i class="fa fa-angle-double-right"></i><span>Please Fill in the details to get your chances of Loan Approval</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Terms Content -->
+    <div id="Predict" class="ex-basic-2">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+
+							<!-- Contact Form -->
+								<form id="contactForm" data-toggle="validator" data-focus="false" action="{{ url_for('loan_application') }}" method="POST">
+                                <div class="form-group">
+                                    <input name="duration"  class="form-control-input" type="number" min="1" max="140" id="duration" required>
+                                    <label class="label-control" for="duration">Loan Amount Term: The  no. of days over which the loan will be paid (in Months)</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input name="credit_amount" type="number" min="0" max="10000000" class="form-control-input" id="credit_amount" required>
+                                    <label class="label-control" for="credit_amount">Credit Amount: The amount you will be credit(Amount in Deutschmark Currency) </label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input name="investment_as_income_percentage" type="number" min="0" max="100" class="form-control-input" id="investment_as_income_percentage" required>
+                                    <label class="label-control" for="investment_as_income_percentage">Investment as income percentage: The amount you will be investment </label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="age" type="number" min="0" max="100" class="form-control-input" id="age" required>
+                                    <label class="label-control" for="age">Applicant Age</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="genders_type" list="genders" class="form-control-input" required select>
+                                    <label class="label-control" for="genders_type">Gender</label>
+                                    <datalist id="genders">
+                                    <option value="MALE">
+                                    <option value="FEMALE">
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="dependent" type="number" min="0" max="25" class="form-control-input" id="dependent" required>
+                                    <label class="label-control" for="dependent">Dependents: Number of people being liable to provide maintenance (Numerical) </label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input name="status" list="status" class="form-control-input" required select>
+                                    <label class="label-control" for="status">Status of existing checking account</label>
+                                    <datalist id="status">
+                                    <option value='...< 0 DM'>
+                                    <option value='0 <= ...< 200 DM'>
+                                    <option value='... >= 200 DM'>
+                                    <option value='no checking account'>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="residence_since" type="number" min="0" max="100" class="form-control-input" id="residence_since" required>
+                                    <label class="label-control" for="residence_since">Residence Since: Present residence since(Numerical) </label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="credit_history" list="credit_history" class="form-control-input" required select>
+                                    <label class="label-control" for="credit_history">Credit History of the applicant</label>
+                                    <datalist id="credit_history">
+                                    <option value='No Credits'>
+                                    <option value='Paid Credits'>
+                                    <option value='Existing Credits'>
+                                    <option value='Delay in Past'>
+                                    <option value='Critical'>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input name="number_of_credits" type="number" min="0" max="10000000" class="form-control-input" id="number_of_credits" required>
+                                    <label class="label-control" for="number_of_credits">Number of credits: Number of existing credits at this bank(Numerical) </label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="job" list="job" class="form-control-input" required select>
+                                    <label class="label-control" for="job">Job status of the applicant</label>
+                                    <datalist id="job">
+                                    <option value="unemployed/unskilled-non resident">
+                                    <option value="unskilled-resident">
+                                    <option value="skilled employee/official">
+                                    <option value="highly skilled">
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input name="employment" list="employment" class="form-control-input" required select>
+                                    <label class="label-control" for="employment">Employment of the applicant in years</label>
+                                    <datalist id="employment">
+                                    <option value="unemployed">
+                                    <option value="1">
+                                    <option value="4">
+                                    <option value="7">
+                                    <option value="7+"></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="housing" list="housing_list" class="form-control-input" required select>
+                                    <label class="label-control" for="housing">housing status of the applicant</label>
+                                    <datalist id="housing_list">
+                                    <option value="own">
+                                    <option value="rent">
+                                    <option value="free">
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="saving_accounts" list="saving_accounts" class="form-control-input" required select>
+                                    <label class="label-control" for="saving_accounts"> Saving accounts: < 100 DM is low, 100 <= x < 500 DM is medium, 500 <= x < 1000 DM is high, >= 1000 DM is very high </label>
+                                    <datalist id="saving_accounts">
+                                    <option value="... < 100 DM">
+                                    <option value="100 <= ... < 500 DM">
+                                    <option value="500 <= ... < 1000 DM"></option>
+                                    <option value=".. >= 1000 DM"></option>
+                                    <option value="unknown/ no savings account"></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input name="debtors" list="debtors" class="form-control-input" required select>
+                                    <label class="label-control" for="debtors"> Other Debtors: checked other debtors options </label>
+                                    <datalist id="debtors">
+                                    <option value="none">
+                                    <option value="co-applicant">
+                                    <option value="guarantor"></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="property" list="property" class="form-control-input" required select>
+                                    <label class="label-control" for="property"> Other property: checked other property options you have</label>
+                                    <datalist id="property">
+                                    <option value="real estate">
+                                    <option value='life insurance'>
+                                    <option value='car or other'>
+                                    <option value='no property'></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="installment_plans" list="installment_plans" class="form-control-input" required select>
+                                    <label class="label-control" for="installment_plans"> Other installment plans: checked other installment plans options you have</label>
+                                    <datalist id="installment_plans">
+                                    <option value="bank">
+                                    <option value='stores'>
+                                    <option value='none'></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="telephone" list="telephone" class="form-control-input" required select>
+                                    <label class="label-control" for="telephone"> Telephone: telephone you have? </label>
+                                    <datalist id="telephone">
+                                    <option value="yes">
+                                    <option value='none'></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="foreign_worker" list="foreign_worker" class="form-control-input" required select>
+                                    <label class="label-control" for="foreign_worker"> Foreign Worker: you are foreign worker? </label>
+                                    <datalist id="foreign_worker">
+                                    <option value="yes">
+                                    <option value='no'></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input name="purpose" list="purpose_list" class="form-control-input" required select>
+                                    <label class="label-control" for="purpose">Purpose: Purpose of a borrowe amount</label>
+                                    <datalist id="purpose_list">
+                                    <option value="education">
+                                    <option value="business">
+                                    <option value="new car">
+                                    <option value="used car">
+                                    <option value="domestic appliances">
+                                    <option value="furniture/equipment">
+                                    <option value="radio/television">
+                                    <option value="repairs"></option>
+                                    <option value="retraining"></option>
+                                    <option value="(vacation - does not exist?)"></option>
+                                    <option value="others"></option>
+                                    </datalist>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                        </div>
+					</div>
+                    <button type="submit" class="form-control-submit-button">MAKE PREDICTION</button>
+					</form>
+					</div>
+				<div class="result" align="center">
+                    <br>
+                    <br> Loan Decision:
+                    <p style="font-size:20px">{{ result }}</p>
+				</div>
+		</div>
+    </div>
+    <div id=contact class="footer">
+        <div class="text-container about">
+            <h6 class="white">Developed with ❤️ by Neha Nakrani</h6>
+            <p class="white"><i class="fas fa-briefcase">&nbsp;&nbsp;Software Engineer</i></p>
+            <p class="white"><i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;nehanakrani04gmail.com</i></p>
+            <a class="white" href="https://www.linkedin.com/in/nehanakrani"><i class="fab fa-linkedin-in"></i></a>&nbsp;&nbsp;<a class="white" href="https://github.com/nehanakrani"><i class="fab fa-github"></i></a>
+            <p>To know more about the data analysis look at this project on
+              <strong><a href= "https://github.com/nehanakrani/loan_application_prediction">Project on Github</a></strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+	<script src="{{url_for('static', filename='js/popper.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{url_for('static', filename='js/jquery.easing.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{url_for('static', filename='js/jquery.magnific-popup.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{url_for('static', filename='js/morphext.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{url_for('static', filename='js/isotope.pkgd.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{url_for('static', filename='js/validator.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+	<script src="{{url_for('static', filename='js/scripts.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+</body>
+</html>
